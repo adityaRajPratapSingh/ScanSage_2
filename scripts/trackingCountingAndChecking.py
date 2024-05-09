@@ -43,17 +43,17 @@ while capture.isOpened():
     out.write(frame)
 
 
-
+total_humans_in, total_cards_in = 0, 0
 if counter1.class_wise_count.get('human') and counter1.class_wise_count.get('card'):
-    print('total humans in: ', max(counter1.class_wise_count['human']['IN'],counter1.class_wise_count['human']['OUT']))
-    print('total cards in: ', max(counter1.class_wise_count['card']['IN'],counter1.class_wise_count['card']['OUT']))
+    total_humans_in = max(counter1.class_wise_count['human']['IN'],counter1.class_wise_count['human']['OUT'])
+    total_cards_in = max(counter1.class_wise_count['card']['IN'],counter1.class_wise_count['card']['OUT'])
 elif counter1.class_wise_count.get('human'):
-    print('total humans in: ', max(counter1.class_wise_count['human']['IN'], counter1.class_wise_count['human']['OUT']))
-    print('total cards in: ', 0)
+    total_humans_in = max(counter1.class_wise_count['human']['IN'],counter1.class_wise_count['human']['OUT'])
+    total_cards_in=0
 else:
-    print('total humans in: ', 0)
-    print('total cards in: ', max(counter1.class_wise_count['card']['IN'], counter1.class_wise_count['card']['OUT']))
-
+    total_humans_in=0
+    total_cards_in = max(counter1.class_wise_count['card']['IN'],counter1.class_wise_count['card']['OUT'])
+print('total humans and total cards in: ', total_humans_in, total_cards_in)
 
 
 capture.release()
