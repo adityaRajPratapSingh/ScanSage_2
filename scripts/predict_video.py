@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import cv2
 
-video_path_in = "D:\\Apps\\yolo3\\vids\\6.mp4"
+video_path_in = "D:\\Apps\\yolo3\\vids\\12.mp4"
 video_path_out = '{}_out.mp4'.format(video_path_in)
 
 capture = cv2.VideoCapture(video_path_in)
