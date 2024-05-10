@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc3adbd5-902c-4860-a895-cf72c8a16533" name="Changes" comment="done with training went with mostly online not local, ready to start infrencing now..">
-      <change afterPath="$PROJECT_DIR$/scripts/demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/predict_video.py" afterDir="false" />
+    <list default="true" id="fc3adbd5-902c-4860-a895-cf72c8a16533" name="Changes" comment="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part finally">
+      <change afterPath="$PROJECT_DIR$/scripts/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/trackingCountingAndChecking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webcam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,9 +52,12 @@
     "Python.main.executor": "Run",
     "Python.predict_video.executor": "Run",
     "Python.predict_video_2.executor": "Run",
+    "Python.trackingAndCounting.executor": "Run",
+    "Python.trackingCountingAndChecking.executor": "Run",
+    "Python.webcam.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -111,7 +115,55 @@
       <option name="project" value="LOCAL" />
       <updated>1715204541419</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="predict_video.py and demo.py added">
+      <option name="closed" value="true" />
+      <created>1715224122247</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715224122247</updated>
+    </task>
+    <task id="LOCAL-00006" summary="trackingAndCounting.py added">
+      <option name="closed" value="true" />
+      <created>1715255990366</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715255990366</updated>
+    </task>
+    <task id="LOCAL-00007" summary="trackingAndCounting.py completed">
+      <option name="closed" value="true" />
+      <created>1715276246624</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715276246624</updated>
+    </task>
+    <task id="LOCAL-00008" summary="correct region and logic for counting total in of every class is defined in trackingCountingAndChecking.py, now to start the checking part">
+      <option name="closed" value="true" />
+      <created>1715298433796</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715298433796</updated>
+    </task>
+    <task id="LOCAL-00009" summary="correct region and logic for counting total in of every class is defined in trackingCountingAndChecking.py, now to start the checking part">
+      <option name="closed" value="true" />
+      <created>1715298652483</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715298652483</updated>
+    </task>
+    <task id="LOCAL-00010" summary="correct region and logic for counting total in of every class is defined in trackingCountingAndChecking.py, now to start the checking part">
+      <option name="closed" value="true" />
+      <created>1715301921113</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715301921113</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +182,15 @@
     <MESSAGE value="second commit after fixing a small error in main.py" />
     <MESSAGE value="added the requirements.txt file for the VE(.venv)" />
     <MESSAGE value="done with training went with mostly online not local, ready to start infrencing now.." />
-    <option name="LAST_COMMIT_MESSAGE" value="done with training went with mostly online not local, ready to start infrencing now.." />
+    <MESSAGE value="predict_video.py and demo.py added" />
+    <MESSAGE value="trackingAndCounting.py added" />
+    <MESSAGE value="trackingAndCounting.py completed" />
+    <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part" />
+    <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part" />
+    <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part" />
+    <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part finally" />
+    <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCountingAndChecking.py, now to start the checking part finally" />
+    <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part finally" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part finally" />
   </component>
 </project>

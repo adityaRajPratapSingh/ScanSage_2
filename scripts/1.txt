@@ -1,0 +1,43 @@
+import cv2
+import torch
+import numpy as np
+
+# Initialize YOLO model
+model = torch.hub.load('ultralytics/yolov5', 'custom', path_or_model='yolov5s.pt')
+
+# Initialize variables to track detected objects
+prev_objects = []
+
+# Process video feed frame by frame
+cap = cv2.VideoCapture('video.mp4')
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Perform object detection using YOLO model
+    results = model(frame)
+
+    # Extract detected objects' class, bounding box coordinates, and confidence scores
+    detections = results.xyxy[0].cpu().numpy()  # Assuming YOLOv5 returns xyxy format
+
+    # Process each detected object
+    for det in detections:
+        class_id = int(det[5])  # Class ID
+        bbox = det[:4]           # Bounding box coordinates
+
+        # Check if the detected object is already in the list of previous objects
+        if (class_id, tuple(bbox.tolist())) not in prev_objects:
+            # Perform further processing (e.g., tracking, analysis) for the new object
+            # ...
+            # Update the list of previous objects
+            prev_objects.append((class_id, tuple(bbox.tolist())))
+
+    # Display the frame with detected objects
+    cv2.imshow('Frame', frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
