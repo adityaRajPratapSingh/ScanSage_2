@@ -5,7 +5,6 @@ import cv2
 import threading
 import time
 
-
 def count_total():
     while True:
         time.sleep(5)
@@ -20,8 +19,6 @@ def count_total():
             total_humans_in = 0
             total_cards_in = max(counter.class_wise_count['card']['IN'], counter.class_wise_count['card']['OUT'])
         print('TOTAL HUMANS AND TOTAL CARDS IN: ', total_humans_in, total_cards_in)
-
-
 def bbox_iou(bbox1, bbox2):
 
   area1 = (bbox1[2] - bbox1[0]) * (bbox1[3] - bbox1[1])
@@ -39,23 +36,16 @@ def bbox_iou(bbox1, bbox2):
   return iou
 
 capture = cv2.VideoCapture("D:\\Apps\\yolo3\\vids\\8_edited.mp4")
-
 model = YOLO("D:\\Apps\\yolo3\\ptWeights\\weights\\best.pt")
-
 region_points1 = [(550, 538), (800, 538), (800, 38), (550, 38)]
 classes = [0, 1]
-
 counter = object_counter.ObjectCounter()
-counter.set_args(view_img=True, view_in_counts=True, view_out_counts=True, reg_pts=region_points1,
-                 classes_names=model.names, draw_tracks=True, line_thickness=1)
-
+counter.set_args(view_img=True, view_in_counts=True, view_out_counts=True, reg_pts=region_points1, classes_names=model.names, draw_tracks=True, line_thickness=1)
 t1 = threading.Thread(target=count_total)
 t1.start()
-
-already_detected = []
-
+tracked_humans={}
+tracked_cards={}
 counter_for_name=0
-
 while True:
 
     ret, frame = capture.read()
@@ -65,33 +55,39 @@ while True:
     tracks = model.track(frame, persist=True, show=False, classes=classes)
     counter.start_counting(frame, tracks)
 
-    new_detections = []
-    results = model(frame)[0]
+    '''for track in tracks:
+        track_id = track.id
+        track_class = track.cls
+        track_box = track.xyxy[0]
 
-    new_detections.append(results)
-    for result in results:
-        h_x1, h_y1, h_x2, h_y2 = 0, 0, 0, 0
-        c_x1, c_y1, c_x2, c_y2 = 0, 0, 0, 0
-        #if result.boxes.xyxy.tolist() not in already_detected:
-        if result not in already_detected:
-            #new_detections.append(result.boxes.xyxy.tolist())
-            new_detections.append(result)
-            if result.boxes.cls == 0:
-                h_x1, h_y1, h_x2, h_y2 = result.boxes.xyxy[0]
-            if result.boxes.cls == 1:
-                c_x1, c_y1, c_x2, c_y2 = result.boxes.xyxy[0]
-            #this condition is so that i can take a screenshot whenever the cards class object does not overlap with the human class object
-            if bbox_iou([h_x1, h_y1, h_x2, h_y2], [c_x1, c_y1, c_x2, c_y2]) !=1:
-                screenshot = frame.copy()
-                filename = f'screenshot{counter_for_name}.jpg'
-                cv2.imwrite(filename, screenshot)
-                print("SCREENSHOT CAPTURED")
-                counter_for_name += 1
-        already_detected.extend(new_detections)
+        if track_class==0:
+            tracked_humans[track_id]=track_box
+        elif track_class==1:
+            tracked_cards[track_id]=track_box'''
+    for results in tracks:
+        for track in results.xyxy:
+            track_id = track[0]  # Accessing the first element of the bounding box
+            track_class = int(track[5])  # Accessing the class ID
+            track_box = track[1:5]  # Accessing the bounding box coordinates
 
-    key = cv2.waitKey(1)
-    if key == ord('q'):
-        break
+            if track_class == 0:
+                tracked_humans[track_id] = track_box
+            elif track_class == 1:
+                tracked_cards[track_id] = track_box
+
+    for human_id, human_box in tracked_humans.items():
+        no_overlap = True  # Flag to indicate no overlap found
+
+        for card_id, card_box in tracked_cards.items():
+            if bbox_iou(human_box, card_box) > 0:  # Any overlap detected
+                no_overlap = False
+                break
+        if no_overlap:
+            screenshot = frame.copy()
+            filename = f'screenshot{counter_for_name}.jpg'
+            cv2.imwrite(filename, screenshot)
+            print("SCREENSHOT CAPTURED")
+            counter_for_name += 1
 
 t1.join()
 capture.release()

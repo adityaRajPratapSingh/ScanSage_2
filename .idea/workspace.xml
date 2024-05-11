@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc3adbd5-902c-4860-a895-cf72c8a16533" name="Changes" comment="when i started chaning webcam.py">
+    <list default="true" id="fc3adbd5-902c-4860-a895-cf72c8a16533" name="Changes" comment="integrating ckecking and counting both run in webcam.py counting is working perfectly the whole thing runs there is some logical error in checking still.">
+      <change afterPath="$PROJECT_DIR$/scripts/dataone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/dataone_testingboxes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/upload_only.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webcam_supervision_experimental.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/webcam_third_try.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/webcam.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/webcam.py" afterDir="false" />
     </list>
@@ -46,13 +51,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.dataone.executor": "Run",
     "Python.demo.executor": "Run",
     "Python.main.executor": "Run",
     "Python.predict_video.executor": "Run",
     "Python.predict_video_2.executor": "Run",
     "Python.trackingAndCounting.executor": "Run",
     "Python.trackingCountingAndChecking.executor": "Run",
+    "Python.upload_only.executor": "Run",
     "Python.webcam.executor": "Run",
+    "Python.webcam_supervision_experimental.executor": "Run",
+    "Python.webcam_third_try.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -169,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715340870781</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="integrating ckecking and counting both run in webcam.py counting is working perfectly the whole thing runs there is some logical error in checking still.">
+      <option name="closed" value="true" />
+      <created>1715345709199</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715345709199</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +215,8 @@
     <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCountingAndChecking.py, now to start the checking part finally" />
     <MESSAGE value="correct region and logic for counting total in of every class is defined in trackingCounting_2.py, now to start the checking part finally" />
     <MESSAGE value="when i started chaning webcam.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="when i started chaning webcam.py" />
+    <MESSAGE value="integrating ckecking and counting both run in webcam.py counting is working perfectly the whole thing runs there is some logical error in checking still." />
+    <option name="LAST_COMMIT_MESSAGE" value="integrating ckecking and counting both run in webcam.py counting is working perfectly the whole thing runs there is some logical error in checking still." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
